@@ -21,6 +21,7 @@ RWSS <- function(x, lambda1, criterion1 = 0.01, b, lambda2 = lambda1, criterion2
     flag <- sum(abs(r[r<0]))
   }
   
+  
   # WSS parts
   # pre-baseline 
   b <- z
