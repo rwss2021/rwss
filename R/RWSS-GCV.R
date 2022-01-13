@@ -40,7 +40,7 @@ RWSS_GCV <- function(x, lambda1, criterion1 = 0.01, b, lambda2 = lambda1, criter
     weights <- weights/sum(weights) # scale
     weights[index] = 1-weights[index]
     
-    ss_re <- smooth.spline(t_1, lambda = lambda2, all.knots = TRUE, w = weights)
+    ss_re <- smooth.spline(t_1, lambda = lambda2, all.knots = TRUE, w = weights, cv=FALSE)
     res2 <- (t_1 - ss_re$y)^2
     residuals <- log(ifelse(res2 == 0, min(res2[res2 != 0]), res2))
     variance <- smooth.spline(residuals, cv = TRUE, all.knots = TRUE)
